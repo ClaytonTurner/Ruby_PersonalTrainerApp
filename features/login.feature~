@@ -23,7 +23,7 @@ Scenario: try to log into existing account
 Scenario: try to log into existing account
 	When I fill in 'Logging ID' with myemail@email.com
 	And I fill in 'Password' with wrongpassword
-	And press 'Sweat'
+	And press the 'Sweat' button
 	Then I should see 'Wrong login information'
 	Then I should be redirected to the 'Welcome Page' page
 	And I should not be on the 'Get Started' page

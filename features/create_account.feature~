@@ -3,7 +3,6 @@ Feature: User can create an account by clicking 'New User' button
 
 As a new user
 So I can create a new account with my Personal Trainer Application
-I want to create a profile
 
 Background: Start from the 'Welcome Page' home page
 	

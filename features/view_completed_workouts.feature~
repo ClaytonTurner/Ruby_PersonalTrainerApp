@@ -1,0 +1,34 @@
+Feature: output information for your completed workout
+
+As a registered user 
+So I can view statistics on my completed workouts
+I want to view the exercises completed and the duration of each exercise.
+
+Background: Start from the 'Workout' page
+	Given the following workouts exist:
+	| id | name     | listOfExerciseIds | email            |
+	| 1  | workout1 | 1,3,5,1,2,3,1     | myemail@email.com|
+	| 2  | workout2 | 1,9,7,1,7,9,1     | myemail@email.com|
+	| 3  | workout3 | 1,2,3,1,2,3,1     | myemail@email.com|
+	| 4  | workout4 | 1,12,3,1,12,3,1   | myemail@email.com|
+	| 5  | workout5 | 1,2,2,1,2,2,1     | other@email.com  |
+
+	Given the following workoutlogs exists:
+	| id | workoutId | completedDate | totalTime | email            |
+	| 1  | 1         | 03-Nov-2014   | 00:10:00  | myemail@email.com|
+	| 2  | 1         | 04-Nov-2014   | 00:10:00  | myemail@email.com|
+  | 3  | 5         | 04-Nov-2014   | 00:15:00  | other@email.com  | 
+	| 4  | 2         | 15-Nov-2014   | 00:05:00  | myemail@email.com|
+
+	And I am logged in as 'myemail@email.com'
+	And I am on the 'My Workouts' page
+	
+
+Scenario: see completed exercises
+	When I press 'Completed Workouts'
+	Then I should be redirected to the 'Completed Workout' page
+	And I should see 'workout1: 03-Nov-2014 00:10:00'
+	And I should see 'workout1: 04-Nov-2014 00:10:00'
+	And I should see 'workout2: 15-Nov-2014 00:05:00'
+	And I should see 'Save' button
+

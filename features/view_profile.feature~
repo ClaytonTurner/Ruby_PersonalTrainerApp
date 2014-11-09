@@ -29,3 +29,17 @@ Scenerio: intiate edit user profile
   When I press "Edit Profile"
   Then I should be routed to the "Edit Profile" page
 
+Backround: I am on the "Edit Profile" page
+
+Scenerio: Edit user profile
+  When I enter all my information on "Edit Profile" page
+  And I press"Submit"
+  Then I should see "{My name}, your profile has been successfully updated"
+  Then I should be routed to the "User Homepage"
+
+Scenerio: Delete user profile
+  When I press "Delete profile"
+  Then Then I should see "Your profile has been deleted"
+  Then I should be routed to the "Welcome Page"
+
+
