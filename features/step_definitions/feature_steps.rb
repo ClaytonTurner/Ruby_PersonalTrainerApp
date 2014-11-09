@@ -1,19 +1,19 @@
 
-Given /the following workouts exist/ do |Workouts_table|
-  Workouts_table.hashes.each do |Workout|
-   Workout.create!(Workout)
+Given /the following workouts exist/ do |workouts_table|
+  Workouts_table.hashes.each do |workout|
+   Workout.create!(workout)
   end
-  #flunk "Unimplemented"
+  flunk "Unimplemented"
 end
 
-Given /the following profiles exist/ do |Pofiles_table|
-  Pofiles_table.hashes.each do |Pofile|
-   Pofile.create!(Pofile)
+Given /the following profiles exist/ do |profiles_table|
+  Profiles_table.hashes.each do |profile|
+   Profile.create!(profile)
   end
-  #flunk "Unimplemented"
+  flunk "Unimplemented"
 end
 
-Given /the following workoutlogs exist/ do |WorkoutLogs_table|
+Given /the following workoutlogs exist/ do |workoutLogs_table|
   flunk "Unimplemented"
 end
 
