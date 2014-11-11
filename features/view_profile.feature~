@@ -23,7 +23,7 @@ Scenario: view user profile
   And I should see "Weight: 170 lbs"
   And I should see "Height: 54 inches"
  
-Scenario: intiate edit user profile
+Scenerio: intiate edit user profile
 	When I press "View Profile"
   Then I should be redirected to the "User Profile" page
   When I press "Edit Profile"
