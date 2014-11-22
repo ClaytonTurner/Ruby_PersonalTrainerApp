@@ -1,4 +1,4 @@
-Class Workout < ActiveRecord::Base
+class Workout < ActiveRecord::Base
   
   attr_accessible :title, :time, :creator, :exercise_list
 
