@@ -16,7 +16,7 @@ Background: start on the Get Started page
 
 
 Scenario: redirected to create workout page
-	When I press "Create New Workout"
+	When I press 'Create New Workout'
 	Then I should be redirected to the 'Create Workout' page
 
 Scenario: redirected to user profile page

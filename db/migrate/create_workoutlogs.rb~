@@ -1,0 +1,14 @@
+class CreateWorkoutLogs < ActiveRecord::Migration
+  def up
+    create_table :workoutlogs do |w|
+			w.timedate :completedDate
+			w.string :totalTime
+			belongs_to :profiles
+			has_many :workouts
+    end
+  end
+
+  def down
+    drop_table :exercises
+  end
+end

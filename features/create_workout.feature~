@@ -14,7 +14,7 @@ Background: Start at the Create Workout page
 	| workout4 | 1          |
 	| workout5 | 2          |
 
-	And I am logged in as 1
+	And I am logged in as myemail@email.com
 	And I am on the 'Create Workout' page
 
 Scenario: create workout

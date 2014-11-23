@@ -1,0 +1,13 @@
+class CreateWorkouts < ActiveRecord::Migration
+  def up
+    create_table :workouts do |w|
+      w.string :name
+			belongs_to :profiles
+			belongs_to :workoutlogs
+    end
+  end
+
+  def down
+    drop_table :workouts
+  end
+end
