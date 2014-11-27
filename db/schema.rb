@@ -11,13 +11,31 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20141122161449) do
 
-  create table "workouts", :force => true do |t|
-    t.string  "title"
-    t.string  "time"
-    t.string  "creator"
+  create_table "exercises", :force => true do |t|
+    t.string "name"
+    t.text   "description"
+    t.time   "defaultTime"
+    t.string "image"
+  end
 
+  create_table "exercises_workouts", :force => true do |t|
+    t.integer "exercise_id"
+    t.integer "workout_id"
+  end
 
+  create_table "profiles", :force => true do |t|
+    t.string  "email"
+    t.string  "password"
+    t.string  "name"
+    t.integer "weight"
+    t.integer "height"
+  end
+
+  create_table "workouts", :force => true do |t|
+    t.string  "name"
+    t.integer "profile_id"
+  end
 
 end

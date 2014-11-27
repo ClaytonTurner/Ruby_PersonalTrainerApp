@@ -7,7 +7,6 @@ class WorkoutsController < ApplicationController
   end
 
   def index
-    @all_workouts = Workout.all_workouts
     @workouts = Workout.all
   end
 
