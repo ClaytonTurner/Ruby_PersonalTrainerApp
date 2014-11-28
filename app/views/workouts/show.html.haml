@@ -1,0 +1,16 @@
+-# in app/views/workouts/show.html.haml
+
+%h2 Details about #{@workout.name}
+
+%ul#details
+  %li
+    Creator
+    = @workout.profile_id
+  %li
+    = @workout.exercises
+
+
+
+= link_to 'Edit', edit_workout_path(@workout)
+= button_to 'Delete', workouts_path(@workout), :method => :delete, :confirm => 'Are you sure?'
+= link_to 'Back to workout list', workouts_path

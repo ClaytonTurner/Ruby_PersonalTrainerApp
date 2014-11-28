@@ -11,4 +11,4 @@
       %tr
         %td= workout.name 
         %td= workout.profile_id
-        %td= link_to "Exercises in #{workout.name}", workout_path(workout)
+        %td= link_to "Exercises in #{workout.title}", workout_path(workout)
