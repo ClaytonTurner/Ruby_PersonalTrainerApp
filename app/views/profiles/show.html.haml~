@@ -1,19 +1,24 @@
--# in app/views/movies/show.html.haml
+-# in app/views/profiles/show.html.haml
 
-%h2 Details about #{@movie.title}
+%h2 Details about #{@profile.name}
 
 %ul#details
   %li
-    Rating:
-    = @movie.rating
+    Email:
+    = @profile.email
   %li
-    Released on:
-    = @movie.release_date.strftime("%B %d, %Y")
+    Weight:
+    = @profile.weight
+  %li
+    Height:
+    = @profile.height
 
-%h3 Description:
+%ul#exercises
+  - @profile.workouts.each do |workout|
+    %li
+      = link_to 'visit #{workout.name}', workout_path(workout) #I do not know why the interpolation is not working.
+  
 
-%p#description= @movie.description
+= link_to 'Edit', edit_profile_path(@profile)
+= button_to 'Delete', profile_path(@profile), :method => :delete, :confirm => 'Are you sure?'
 
-= link_to 'Edit', edit_movie_path(@movie)
-= button_to 'Delete', movie_path(@movie), :method => :delete, :confirm => 'Are you sure?'
-= link_to 'Back to movie list', movies_path

@@ -1,0 +1,19 @@
+-# edit.html.haml using partial
+
+%h1 Edit Existing Profile
+
+= form_tag profile_path(@profile), :method => :put do
+
+  = label :profile, :email, 'Email'
+  = text_field :profile, 'email'
+
+  = label :profile, :name, 'Name'
+  = text_field :profile, 'name'
+
+  = label :profile, :weight, 'Weight'
+  = text_field :profile, 'weight'
+
+  = label :profile, :height, 'Height'
+  = text_field :profile, 'height'
+
+  = submit_tag 'Update Profile Info'

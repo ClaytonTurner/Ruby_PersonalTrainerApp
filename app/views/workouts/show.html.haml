@@ -1,11 +1,13 @@
 -# in app/views/workouts/show.html.haml
 
 %h2 Details about #{@workout.name}
+%h4 Created by:
 
 %ul#details
   %li
     Creator
     = @workout.profile_id
+
   %li
     = @workout.exercises
 

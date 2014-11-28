@@ -13,9 +13,12 @@
     Height:
     = @profile.height
 
-%ul#Exercises:
+%ul#exercises
+  - @profile.workouts.each do |workout|
+    %li
+      = link_to 'visit #{workout.name}', workout_path(workout) #I do not know why the interpolation is not working.
   
 
 = link_to 'Edit', edit_profile_path(@profile)
 = button_to 'Delete', profile_path(@profile), :method => :delete, :confirm => 'Are you sure?'
-
+= link_to 'Workouts', workouts_path
