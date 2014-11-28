@@ -16,7 +16,7 @@
 %ul#exercises
   - @profile.workouts.each do |workout|
     %li
-      = link_to 'visit #{workout.name}', workout_path(workout) #I do not know why the interpolation is not working.
+      = link_to '#{workout.name}', workout_path(workout) #I do not know why the interpolation is not working.
   
 
 = link_to 'Edit', edit_profile_path(@profile)

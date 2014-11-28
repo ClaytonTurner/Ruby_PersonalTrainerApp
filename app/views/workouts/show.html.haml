@@ -3,14 +3,18 @@
 %h2 Details about #{@workout.name}
 %h4 Created by:
 
-%ul#details
-  %li
-    Creator
-    = @workout.profile_id
-
-  %li
-    = @workout.exercises
-
+%table#exercises
+  %thead
+    %tr
+      %th Name
+      %th Description
+      %th Time
+  %tbody
+    - @workout.exercises.each do |exercise|
+      %tr
+        %td= exercise.name
+        %td= exercise.description
+        %td= exercise.defaultTime
 
 
 = link_to 'Edit', edit_workout_path(@workout)
