@@ -4,6 +4,7 @@ class WorkoutsController < ApplicationController
     id = params[:id] # retrieve workout ID from URI route
     @workout = Workout.find(id) # look up workout by unique ID
     # will render app/views/workouts/show.<extension> by default
+    @creator = Profile.find(@workout)
   end
 
   def index

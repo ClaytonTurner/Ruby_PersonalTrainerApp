@@ -1,7 +1,7 @@
 -# in app/views/workouts/show.html.haml
 
 %h2 Details about #{@workout.name}
-%h4 Created by:
+%h4= link_to "Created by: #{@creator.name}", profile_path(@creator)
 
 %table#exercises
   %thead
