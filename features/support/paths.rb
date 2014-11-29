@@ -12,7 +12,15 @@ module NavigationHelpers
   #
   def path_to(page_name)
     case page_name
-
+			
+			when /^the 'Get Started' page/ then '/index'
+			when /^the 'User Profile' page/ then '/profile'
+			when /^the 'Welcome Page' page/ then '/login'
+			when /^the 'Create Workout' page/ then '/createworkout'
+			when /^the 'My Workouts' page/ then '/workouts'
+			when /^the 'Edit Profile' page/ then '/editprofile'
+			when /^the 'Build Your Profile' page/ then '/createprofile'
+			when /^the 'Exercises' page/ then '/exercises'
     
 
     # Add more mappings here.
