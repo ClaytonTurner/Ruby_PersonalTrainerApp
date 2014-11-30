@@ -1,0 +1,24 @@
+-# in app/views/workouts/show.html.haml
+%h1.title Personal Trainer App!
+
+= form_tag workouts_path do
+
+  = label :workout, :name, 'Name'
+  = text_field :workout, 'name'
+
+  = submit_tag 'Save Changes'
+
+%table#exercises
+  %thead
+    %tr
+      %th Name
+      %th Description
+      %th Time
+  %tbody
+    - @exercisee.each do |exercise|
+      %tr
+        %td= exercise.name
+        %td= exercise.description
+        %td= exercise.defaultTime
+= link_to 'Back to workout list', workouts_path
+
