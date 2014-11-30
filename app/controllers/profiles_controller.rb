@@ -39,6 +39,7 @@ class ProfilesController < ApplicationController
   end
 
   def login
-    #empty method
+#email = params[:email]
+#redirect_to workouts_path :email => email
   end
 end
