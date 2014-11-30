@@ -10,8 +10,8 @@
   %tbody
     - @profiles.each do |profile|
       %tr
-        %td= profile.name 
+        %td= link_to "#{profile.name}", profile_path(profile) 
         %td= profile.email
         %td= profile.weight
         %td= profile.height
-        %td= link_to "#{profile.name}", profile_path(profile)
+        

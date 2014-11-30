@@ -8,6 +8,13 @@ class WorkoutsController < ApplicationController
   end
 
   def index
+    sort = params[:sort]
+    case sort
+    when 'name'
+       ordering,@title_header = {:order => :name}, 'hilite'
+    when 'profile_id'
+       ordering,@creator_header = {:order => :profile_id}, 'hilite'
+    end
     @workouts = Workout.all
   end
 

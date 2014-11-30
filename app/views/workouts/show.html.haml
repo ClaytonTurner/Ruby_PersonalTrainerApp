@@ -1,5 +1,5 @@
 -# in app/views/workouts/show.html.haml
-
+%h1.title Personal Trainer App!
 %h2 Details about #{@workout.name}
 %h4= link_to "Created by: #{@creator.name}", profile_path(@creator)
 
@@ -12,7 +12,7 @@
   %tbody
     - @workout.exercises.each do |exercise|
       %tr
-        %td= exercise.name
+        %td= link_to "#{exercise.name}", exercise_path(exercise)
         %td= exercise.description
         %td= exercise.defaultTime
 
