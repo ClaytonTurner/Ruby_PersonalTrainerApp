@@ -1,0 +1,23 @@
+
+%h1.title Personal Trainer App!
+%h2 Edit #{@workout.name}
+
+= form_tag workouts_path(@workouts), :method => :put do
+
+  = label :workouts, :name, 'Name'
+  = text_field :workouts, 'name'
+
+%table#exercises
+  %thead
+    %tr
+      %th Name
+      %th Description
+      %th Time
+  %tbody
+    - @workout.exercises.each do |exercise|
+      %tr
+        %td= exercise.name
+        %td= exercise.description
+        %td= exercise.defaultTime
+
+= submit_tag 'Update Workout Info'
