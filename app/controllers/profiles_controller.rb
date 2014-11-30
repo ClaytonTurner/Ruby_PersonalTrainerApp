@@ -2,8 +2,8 @@ class ProfilesController < ApplicationController
 
   def show
     id = params[:id] # retrieve workout ID from URI route
-    @profile = Profile.find(id) # look up workout by unique ID
-    # will render app/views/workouts/show.<extension> by default
+    @profile = Profile.find(id) # look up profile by unique ID
+    # will render app/views/profiles/show.<extension> by default
   end
 
   def index
@@ -38,5 +38,7 @@ class ProfilesController < ApplicationController
     redirect_to workouts_path
   end
 
-
+  def login
+    #empty method
+  end
 end

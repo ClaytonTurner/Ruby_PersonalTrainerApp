@@ -1,9 +1,11 @@
 WorkoutApp::Application.routes.draw do
   mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
-
+  get 'profiles/login', to: 'profiles#login', as: :login
   resources :workouts
   resources :profiles
   resources :exercises
+
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

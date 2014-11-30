@@ -3,8 +3,10 @@
 
 = form_tag profiles_path do
 
-  = label :profile, :email, 'Email' = text_field :profile, 'email'
+  = label :profile, :email, 'Email' 
+  = text_field :profile, 'email'
 
-  = label :profile, :password, 'Password' = text_field :profile, 'name'
+  = label :profile, :password, 'Password' 
+  = text_field :profile, 'name'
 
   = submit_tag 'Submit'

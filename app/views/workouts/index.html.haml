@@ -1,9 +1,9 @@
 -# This file is app/vies/workouts/index.html.haml
 %h1.title Personal Trainer App!
 Hello
-= link_to "Login", new_profile_path
+= link_to "Login", login_path
 = link_to "Create Account", new_profile_path
-= link_to "View Account", new_profile_path
+= link_to "View Accounts", profiles_path(@profile)#new_profile_path
 
 %h2 All Workouts
 %table#workouts

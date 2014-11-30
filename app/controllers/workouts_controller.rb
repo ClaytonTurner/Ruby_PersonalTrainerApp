@@ -9,6 +9,7 @@ class WorkoutsController < ApplicationController
 
   def index
     sort = params[:sort]
+    @profile = params[:email]
     case sort
     when 'name'
        ordering,@title_header = {:order => :name}, 'hilite'
