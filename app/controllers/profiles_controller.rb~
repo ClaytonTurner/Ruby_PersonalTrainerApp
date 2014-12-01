@@ -42,8 +42,4 @@ class ProfilesController < ApplicationController
 #email = params[:email]
 #redirect_to workouts_path :email => email
   end
-
-	def home
-
-	end
 end

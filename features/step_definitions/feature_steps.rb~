@@ -42,11 +42,4 @@ Then /^I should be redirected to the "(.*)" page$/ do |pagename|
   response.should redirect_to(path_to(pagename))
 end
 
-Then(/^The workout "(.*?)" should be added to the workouts table$/) do |workout_name|
-  w = Workout.find_by_name(workout_name)
-	assert(w)
-end
-
-
-
 

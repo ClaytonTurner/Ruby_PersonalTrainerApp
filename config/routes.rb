@@ -1,6 +1,7 @@
 WorkoutApp::Application.routes.draw do
   mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
   get 'profiles/login', to: 'profiles#login', as: :login
+	get 'profiles/home', to: 'profiles#home', as: :home
   resources :workouts
   resources :profiles
   resources :exercises

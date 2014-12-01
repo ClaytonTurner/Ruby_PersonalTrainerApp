@@ -18,4 +18,4 @@
   = label :profile, :password, 'Password'
   = text_field :profile, 'password'
 
-  = submit_tag 'Submit'
+  = submit_tag 'Save Changes'
