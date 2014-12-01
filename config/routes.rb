@@ -5,6 +5,9 @@ WorkoutApp::Application.routes.draw do
   resources :workouts
   resources :profiles
   resources :exercises
+  
+  root to: 'workouts#show'
+  match '/workouts/show', :to => 'workouts#show'
 
   
   # The priority is based upon order of creation:
