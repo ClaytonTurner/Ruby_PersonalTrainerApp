@@ -1,0 +1,80 @@
+require 'spec_helper'
+require 'workout_controller.rb'
+
+describe '#destroy' do
+
+ context 'when resource is not found' do
+   it 'responds with record not found'
+   response.should render_template('workouts')
+ end 
+
+ context 'when resource is found' do
+   it 'reponds with Workout "#{@workout.title}" destroyed.'
+   response.should render_template('workouts')
+ end
+end
+
+describe '#update' do
+
+ context 'when updating a record' do
+   it 'responds with "#{@workout.title} was successfully updated."'
+   response.should render_template('workouts')
+ end
+end
+
+describe '#edit' do
+
+  @workout.should equl(Workout.find params[:id])
+
+end
+
+
+ describe 'workouts' do
+   @workout_found = Workouts.new
+   @workout_found.id = 1
+   @workout_found.profile_id = 'test@gmail.com'
+   @workout_found.name = 'Pullups'
+  it 'It should find workout Pullups' do
+   @workout_found.profile_id.should eq('test@gmail.com')
+   @workout_found.id.should eq(1)
+   @workout_found.name.should eq('Pullpups')
+  end
+ end
+
+ describe Profile do
+  it "should have expected attributes" do
+   @profile_found = Profile.new
+   @profile_found.should respond_to :email
+   @profile_found.should respond_to :name
+   @profile_found.should respond_to :weight
+   @profile_found.should respond_to :height
+   @profile_found.should respond_to :password
+  end
+  it 'should find profile test@gamil.com' do
+   @profile_found.email.should eq('test@gmail.com')
+   @profile_found.name.should eq('Abcd')
+   @profile_found.weight.should eq(200)
+   @profile_found.height.should eq(74)
+   @profile_found.password.should eq('Mypa$$word1234')
+  end
+ end
+
+
+  it 'should call the model method that gets the movie information' do
+   Movie.should_receive(:find).with('1').and_return(@movie_found)
+   get :similar, {:id => 1}
+	end 
+	it 'should render index template' do
+   Movie.should_receive(:find).with('2').and_return(@movie_found1)
+   get :similar, {:id => 2}
+   #response.should render_template('index')
+  end
+	it 'should render similar view when there is movie with similar director' do
+   Movie.should_receive(:find).with('1').and_return(@movie_found)
+   Movie.should_receive(:find_all_by_director).with('Abcd').and_return(@movie_found)
+   get :similar, {:id => 1}
+   response.should render_template('similar')
+  end
+
+ end
+end
