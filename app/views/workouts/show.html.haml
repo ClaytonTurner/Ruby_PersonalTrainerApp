@@ -1,7 +1,12 @@
 -# in app/views/workouts/show.html.haml
 %h1.title Personal Trainer App!
+Hello   ,
+= link_to "Login", login_path
+= link_to "Create Account", new_profile_path
+= link_to "View Accounts", profiles_path(@profile)#new_profile_path
 %h2 Details about #{@workout.name}
-%h4= link_to "Created by: #{@creator.name}", profile_path(@creator)
+Created by:
+= link_to "#{@creator.name}", profile_path(@creator)
 
 %table#exercises
   %thead
@@ -17,6 +22,6 @@
         %td= exercise.defaultTime
 
 
-= link_to 'Edit', edit_workout_path(@workout)
 = button_to 'Delete', workouts_path(@workout), :method => :delete, :confirm => 'Are you sure?'
+= link_to 'Edit', edit_workout_path(@workout)
 = link_to 'Back to workout list', workouts_path

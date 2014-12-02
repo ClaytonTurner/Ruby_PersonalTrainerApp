@@ -1,5 +1,9 @@
 -# in app/views/profiles/show.html.haml
 %h1.title Personal Trainer App!
+Hello   ,
+= link_to "Login", login_path
+= link_to "Create Account", new_profile_path
+= link_to "View Accounts", profiles_path(@profile)#new_profile_path
 %h2 Details about #{@profile.name}
 
 %ul#details
@@ -13,12 +17,20 @@
     Height:
     = @profile.height
 
-%ul#exercises
-  - @profile.workouts.each do |workout|
-    %li
-      = link_to "#{workout.name}", workout_path(workout)
+%table#workouts
+  %thead
+    %tr
+      %th Name
+      %th Description
+      %th Time
+  %tbody
+    - @profile.workouts.each do |workout|
+      %tr
+        %td= workout.name 
+        %td= Profile.find(workout.profile_id).name
+        %td= link_to "Exercises in #{workout.name}", workout_path(workout)
   
 
-= link_to 'Edit', edit_profile_path(@profile)
 = button_to 'Delete', profile_path(@profile), :method => :delete, :confirm => 'Are you sure?'
-= link_to 'Workouts', workouts_path
+= link_to 'Edit', edit_profile_path(@profile)
+= link_to 'Back to All Workouts', workouts_path

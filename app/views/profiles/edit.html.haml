@@ -1,5 +1,9 @@
 -# edit.html.haml using partial
 %h1.title Personal Trainer App!
+Hello   ,
+= link_to "Login", login_path
+= link_to "Create Account", new_profile_path
+= link_to "View Accounts", profiles_path(@profile)#new_profile_path
 %h1 Edit Existing Profile
 
 = form_tag profile_path(@profile), :method => :put do
@@ -17,3 +21,5 @@
   = text_field :profile, 'height'
 
   = submit_tag 'Update Profile Info'
+  = button_to 'Delete', profile_path(@profile), :method => :delete, :confirm => 'Are you sure?'
+  = link_to 'Back to Profile', profile_path(@profile)

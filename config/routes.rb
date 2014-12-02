@@ -8,7 +8,6 @@ WorkoutApp::Application.routes.draw do
   
   root to: 'workouts#show'
   match '/workouts/show', :to => 'workouts#show'
-
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,5 +1,5 @@
 %h1.title Personal Trainer App!
-%h1 Login to your account!
+%h2 Login to your account!
 
 = form_tag profiles_path do
 
@@ -8,5 +8,7 @@
 
   = label :profile, :password, 'Password' 
   = text_field :profile, 'password'
-
   = submit_tag 'Submit'
+  %br
+  %br
+  = link_to 'Create Account', new_profile_path

@@ -1,6 +1,6 @@
 -# This file is app/vies/workouts/index.html.haml
 %h1.title Personal Trainer App!
-Hello
+Hello   
 = link_to "Login", login_path
 = link_to "Create Account", new_profile_path
 = link_to "View Accounts", profiles_path(@profile)#new_profile_path
@@ -16,7 +16,7 @@ Hello
     - @workouts.each do |workout|
       %tr
         %td= workout.name 
-        %td= workout.profile_id
+        %td= Profile.find(workout.profile_id).name
         %td= link_to "Exercises in #{workout.name}", workout_path(workout)
 
 = link_to 'Add New Workout', new_workout_path

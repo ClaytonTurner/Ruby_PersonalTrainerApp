@@ -21,6 +21,7 @@ class WorkoutsController < ApplicationController
 
   def new
     # default: render 'new' template
+    @exercises = Exercise.all
   end
 
   def create

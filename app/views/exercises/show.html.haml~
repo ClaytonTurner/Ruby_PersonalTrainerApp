@@ -1,11 +1,15 @@
 -# in app/views/exercises/show.html.haml
 %h1.title Personal Trainer App!
+
+
 %h2 Details about #{@exercise.name}
 
 %ul#details
   %li
     Image:
-    = image_tag("(#{@exercise.name}).png")
+    %br
+    %br
+    = image_tag("#{@exercise.name}.png")
   %li
     Name:
     = @exercise.name

@@ -1,23 +1,32 @@
 
 %h1.title Personal Trainer App!
+Hello   ,
+= link_to "Login", login_path
+= link_to "Create Account", new_profile_path
+= link_to "View Accounts", profiles_path(@profile)#new_profile_path
 %h2 Edit #{@workout.name}
 
 = form_tag workouts_path(@workouts), :method => :put do
 
   = label :workouts, :name, 'Name'
   = text_field :workouts, 'name'
+  = label :workout, 'Include Rest:'
+  = check_box_tag 'rest'
 
 %table#exercises
   %thead
     %tr
+      %th Include
       %th Name
       %th Description
       %th Time
   %tbody
     - @workout.exercises.each do |exercise|
       %tr
+        %td= check_box_tag "Add",1, true
         %td= exercise.name
         %td= exercise.description
         %td= exercise.defaultTime
 
 = submit_tag 'Update Workout Info'
+= link_to 'Back to workout list', workouts_path

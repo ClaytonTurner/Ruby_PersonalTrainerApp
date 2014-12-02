@@ -1,24 +1,32 @@
 -# in app/views/workouts/show.html.haml
 %h1.title Personal Trainer App!
+Hello   ,
+= link_to "Login", login_path
+= link_to "Create Account", new_profile_path
+= link_to "View Accounts", profiles_path(@profile)#new_profile_path
 
+%h2 Create a New Workout
 = form_tag workouts_path do
 
   = label :workout, :name, 'Name'
   = text_field :workout, 'name'
-
-  = submit_tag 'Save Changes'
+  = label :workout, 'Include Rest:'
+  = check_box_tag 'rest'
 
 %table#exercises
   %thead
     %tr
+      %th Include
       %th Name
       %th Description
       %th Time
   %tbody
     - @exercises.each do |exercise|
       %tr
+        %td= check_box_tag "", 1, false
         %td= exercise.name
         %td= exercise.description
         %td= exercise.defaultTime
-= link_to 'Back to workout list', workouts_path
 
+= submit_tag 'Save Changes'
+= link_to 'Back to workout list', workouts_path

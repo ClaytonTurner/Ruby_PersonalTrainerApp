@@ -1,10 +1,18 @@
 -# in app/views/exercises/show.html.haml
 %h1.title Personal Trainer App!
+
+Hello   ,
+= link_to "Login", login_path
+= link_to "Create Account", new_profile_path
+= link_to "View Accounts", profiles_path(@profile)#new_profile_path
+
 %h2 Details about #{@exercise.name}
 
 %ul#details
   %li
     Image:
+    %br
+    %br
     = image_tag("#{@exercise.name}.png")
   %li
     Name:

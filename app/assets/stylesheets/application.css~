@@ -58,6 +58,7 @@ table#workouts th, table#workouts td {
 table#workouts th.hilite {
   background-color: #FF99FF;
 }
+
 #notice, #warning {
   background: rosybrown;
   margin: 1em 0;
@@ -67,5 +68,22 @@ form label {
   display: block;
   line-height: 25px;
   font-weight: bold;
-  color: maroon;
+  color: #9966FF;
+}
+table#exercises {
+  margin: 10px;
+  border-collapse: collapse;
+  width: 100%;
+  -#border-bottom: 2px solid black;
+}
+table#exercises th {
+  font-weight: bold;
+  background-color: #E0A3FF;
+}
+table#exercises th, table#workouts td {
+  padding: 4px;
+  text-align: left;
+}
+table#exercises th.hilite {
+  background-color: #FF99FF;
 }
