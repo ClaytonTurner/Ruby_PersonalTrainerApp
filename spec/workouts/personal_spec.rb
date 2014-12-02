@@ -5,10 +5,12 @@ describe '#destroy' do
 
  context 'when resource is not found' do
    it 'responds with record not found'
+   response.should render_template('workouts')
  end 
 
  context 'when resource is found' do
    it 'reponds with Workout "#{@workout.title}" destroyed.'
+   response.should render_template('workouts')
  end
 end
 
@@ -16,6 +18,7 @@ describe '#update' do
 
  context 'when updating a record' do
    it 'responds with "#{@workout.title} was successfully updated."'
+   response.should render_template('workouts')
  end
 end
 
@@ -56,15 +59,6 @@ end
   end
  end
 
- describe 'Film by same Director' do
-  before :each do
-   @movie_found = Movie.new
-   @movie_found.id = 1
-   @movie_found.director = 'Abcd'
-   @movie_found1 = Movie.new
-   @movie_found1.id = 2
-  end
- end
 
   it 'should call the model method that gets the movie information' do
    Movie.should_receive(:find).with('1').and_return(@movie_found)
