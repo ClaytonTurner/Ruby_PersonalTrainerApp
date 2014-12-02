@@ -1,5 +1,16 @@
 class WorkoutsController < ApplicationController
 
+  def check_login
+    profile_hash = params[:profile]
+    user_email = profile_hash[:email]
+    user_password = profile_hash[:password]
+    if Profile.exists?(:email=>user_email,:password=>user_password)
+      return user_email
+    else
+      return nil
+    end
+  end
+
   def show
     id = params[:id] # retrieve workout ID from URI route
     @workout = Workout.find(id) # look up workout by unique ID
@@ -25,9 +36,22 @@ class WorkoutsController < ApplicationController
   end
 
   def create
-    @workout = Workout.create!(params[:workout])
-    flash[:notice] = "#{@workout.title} was successfully created."
-    redirect_to workouts_path
+    user_email = check_login
+    unless @workout.nil? # User needs to be logged in for workout
+      @profile = params[:email]
+      @workout = Workout.create!(params[:workout])
+      flash[:notice] = "#{@workout.title} was successfully created."
+    end
+    if params[:profile].nil?
+      redirect_to workouts_path
+    else
+      
+      if user_email.nil?
+        redirect_to workouts_path
+      else
+        redirect_to workouts_path(:email=>user_email)
+      end
+    end
   end
 
   def edit

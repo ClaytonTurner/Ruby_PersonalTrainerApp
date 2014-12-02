@@ -1,7 +1,7 @@
 %h1.title Personal Trainer App!
 %h2 Login to your account!
 
-= form_tag profiles_path do
+= form_tag workouts_path(:email=>'Email') do
 
   = label :profile, :email, 'Email' 
   = text_field :profile, 'email'

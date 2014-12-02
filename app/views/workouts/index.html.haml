@@ -19,4 +19,4 @@ Hello
         %td= Profile.find(workout.profile_id).name
         %td= link_to "Exercises in #{workout.name}", workout_path(workout)
 
-= link_to 'Add New Workout', new_workout_path
+= link_to 'Add New Workout', new_workout_path(:email=>params['email'])
