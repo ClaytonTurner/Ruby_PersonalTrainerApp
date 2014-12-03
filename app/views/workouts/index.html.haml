@@ -3,7 +3,8 @@
 Hello   
 = link_to "Login", login_path
 = link_to "Create Account", new_profile_path
-= link_to "View Account", profile_path(@profile)#new_profile_path
+- unless @profile.nil?
+  = link_to "View Account", profile_path(@profile)#new_profile_path
 
 %h2 All Workouts
 %table#workouts
