@@ -1,0 +1,6 @@
+#spec/models/exercise.rb
+
+describe exercise do
+  it "is invalid without a name"
+  it "is incalid without a descirption"
+end
