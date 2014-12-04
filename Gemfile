@@ -13,6 +13,8 @@ group :development, :test do
   gem 'sqlite3'
   gem 'debugger'
   gem 'jasmine-rails' # if you plan to use JavaScript/CoffeeScript
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
 end
 # setup Cucumber, RSpec, autotest support
 group :test do
@@ -24,6 +26,10 @@ group :test do
   gem 'autotest-rails'
   gem 'factory_girl_rails' # if using FactoryGirl
   gem 'metric_fu'        # collect code metrics
+  gem 'faker'
+  gem 'capybara'
+  gem 'guard-rspec'
+  gem 'launchy'
 end
 
 group :production do
