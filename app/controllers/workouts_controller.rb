@@ -5,7 +5,8 @@ class WorkoutsController < ApplicationController
     user_email = profile_hash[:email]
     user_password = profile_hash[:password]
     if Profile.exists?(:email=>user_email,:password=>user_password)
-        return Profile.where("email = ?",user_email).first.id()
+      session[:email] = Profile.where("email = ?",user_email).first.id()  
+      return Profile.where("email = ?",user_email).first.id()
     else
       return nil
     end
@@ -21,6 +22,9 @@ class WorkoutsController < ApplicationController
   def index
     sort = params[:sort]
     @profile = params[:email]
+    if @profile.nil? and session[:email].present?
+      redirect_to workouts_path(:email => session[:email])
+    end
     case sort
     when 'name'
        ordering,@title_header = {:order => :name}, 'hilite'
