@@ -14,7 +14,7 @@ module NavigationHelpers
     case page_name
 
 			when /^Welcome Page/ then '/profiles/login'
-			when /^User Profile/ then '/profiles/show'
+			when /^User Profile/ then '/profiles/'
 			when /^Edit Profile/ then '/profiles/edit'
 			when /^Edit Your Profile/ then '/profiles/edit'
 			when /^Build Your Profile/ then '/profiles/new'
@@ -24,7 +24,6 @@ module NavigationHelpers
 
 			when /^Create Workout/ then '/workouts/new'
 			when /^All Workouts/ then '/workouts/index'
-
 			when /^Workout Details/ then '/workouts/show'
     
 
