@@ -47,6 +47,7 @@ class WorkoutsController < ApplicationController
   def new
     # default: render 'new' template
     @exercises = Exercise.all
+    @profile = params[:email]
   end
 
   def create
