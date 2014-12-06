@@ -1,16 +1,19 @@
+Given(/^the following exercies exist:$/) do |exercies_table|
+  exercies_table.hashes.each do |e|
+		Exercise.create!(e)
+	end
+end
 
 Given /^the following workouts exist/ do |workouts_table|
 	workouts_table.hashes.each do |w|
 		Workout.create!(w)
 	end
-  #flunk "Unimplemented"
 end
 
 Given /the following profiles exist/ do |profiles_table|
   profiles_table.hashes.each do |p|
 		Profile.create!(p)
 	end
-	#flunk "Unimplemented"
 end
 
 Given /^I am logged in as "(.*)"/ do |email|
@@ -20,10 +23,6 @@ end
 
 Given /^I am on the "(.*)"$/ do |pagename|
   visit path_to(pagename)
-end
-
-When /^I enter all my information on "(.*)" page/ do |pagename|		
-	flunk "Unimplemented"
 end
 
 When /^I press the "(.*)" button/ do |button|
@@ -61,9 +60,9 @@ When /I (un)?check the following exercies: "(.*)"/ do |uncheck, exercise_list|
 
 	exercise_list.split(", ").each do |ex|
 		if uncheck.nil?
-			step %Q{I check "exercise_#{ex}"}
+			step %Q{I check "#{ex}"}
 		else
-			step %Q{I uncheck "exercise_#{ex}"}
+			step %Q{I uncheck "#{ex}"}
 		end
 	end
 end

@@ -1,3 +1,8 @@
+Given(/^the following exercies exist:$/) do |exercies_table|
+  exercies_table.hashes.each do |e|
+		Exercise.create!(e)
+	end
+end
 
 Given /^the following workouts exist/ do |workouts_table|
 	workouts_table.hashes.each do |w|
@@ -61,9 +66,15 @@ When /I (un)?check the following exercies: "(.*)"/ do |uncheck, exercise_list|
 
 	exercise_list.split(", ").each do |ex|
 		if uncheck.nil?
+<<<<<<< HEAD
 			step %Q{I check "exercise_#{ex}"}
 		else
 			step %Q{I uncheck "exercise_#{ex}"}
+=======
+			step %Q{I check "#{ex}"}
+		else
+			step %Q{I uncheck "#{ex}"}
+>>>>>>> a8871cd47d7c1619de1acd271a01d4ae4f5c839d
 		end
 	end
 end
