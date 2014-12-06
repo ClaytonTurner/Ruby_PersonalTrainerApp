@@ -13,11 +13,11 @@ Background: I am a registered user on the Personal Trainer app
   | alex@gmail.com	  | 1234aowjes   | Alex	| 115	   | 46	    |
   
   And I am logged in as "jim@gmail.com"
-	And I am on the "Edit Profile" page
+	And I am on the "Edit Profile page for "Jim""
 
 Scenario: edit user weight on profile
   When I fill in "Weight" with "160"
-  And I press the "Save" button
+  And I press the "Update Profile Info" button
   Then I should see "Your profile has been successfully updated"
   Then I should be redirected to the "User Profile" page
 
@@ -25,6 +25,6 @@ Scenario: delete user profile
   When I press the "Delete" button
   Then I should see "Your profile has been successfully deleted"
   Then I should be redirected to the "Welcome Page" page
-	Then The profile "jim@gmail.com" should not exist
+  Then The profile "jim@gmail.com" should not exist
 
 

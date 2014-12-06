@@ -28,18 +28,18 @@ Background: Start at the Create Workout page
   | rest   	| rest now    | 00:00:10    | pic3  |
 
 	And I am logged in as "jim@gmail.com"
-	And I am on the "Create Workout" page
+	And I am on the "Create Workout page for "Jim""
 
 Scenario: create workout
 	When I fill in "Name" with "newWorkout"
 	And I check the following exercies: "pushups, situps"
 	And I press the "Save Changes" button
 	Then The workout "newWorkout" should be added to the workouts table
-	And I should be redirected to the "All Workouts" page
+	And I should be redirected to the "All Workouts page"
 
 Scenario: cancel workout
 	When I fill in "Name" with "newWorkout"
-	And I press the "Cancel" button
+	And I follow "Back to workout list"
 	Then I should be redirected to the "All Workouts" page
 
 

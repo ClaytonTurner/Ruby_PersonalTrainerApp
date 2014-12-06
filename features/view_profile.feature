@@ -14,7 +14,7 @@ Background: I am a registered user on the Personal Trainer app
   | alex@gmail.com	| 1234	   | Alex	| 115	   | 46	    |
   
   And I am logged in as "jim@gmail.com"
-  And I am on the "User Profile" page
+  And I am on the "User Profile page for "Jim""
 
 Scenario: view user profile
   And I should see "Jim"

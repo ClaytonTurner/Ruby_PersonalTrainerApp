@@ -18,6 +18,6 @@ Background: I am a registered user on the Personal Trainer app
 
 Scenario: view user profile
   And I should see "Jim"
-  And I should see "170 lbs"
-  And I should see "54 inches"
+  And I should see "170"
+  And I should see "54"
   And I should see "jim@gmail.com"

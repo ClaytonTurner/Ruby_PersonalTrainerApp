@@ -13,7 +13,7 @@ Background: Start from the "Welcome Page" page
   | will@gmail.com	| 1234	   | Will	| 180	   | 60     |
   | alex@gmail.com	| 1234	   | Alex	| 115	   | 46	    |
 
-	And I am on the "Welcome Page" page
+	And I am on the "Login page"
 
 Scenario: try to log into existing account
 	When I fill in "Email" with "my@email.com"
