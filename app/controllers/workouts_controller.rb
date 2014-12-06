@@ -3,11 +3,21 @@ class WorkoutsController < ApplicationController
   def check_login
 #profile_hash = params[:profile]
     user_email = params[:email]
+    if user_email == "Email"
+      user_email = params[:profile][:email]
+      user_email = Profile.where("email = ?",user_email).first.id()
+    end
+    if user_email.nil?
+      user_email = session[:email]
+    end
 #user_password = profile_hash[:password]
-    if Profile.exists?(:email=>user_email)
-      session[:email] = Profile.where("email = ?",user_email).first.id()  
-      return Profile.where("email = ?",user_email).first.id()
+    if Profile.exists?(5)
+#session[:email] = Profile.where("email = ?",user_email).first.id()  
+      session[:email] = user_email
+#return Profile.where("email = ?",user_email).first.id()
+      return user_email
     else
+      codebreaker
       return nil
     end
   end
