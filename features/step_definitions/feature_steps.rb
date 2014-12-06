@@ -59,12 +59,12 @@ end
 
 When /I (un)?check the following exercies: "(.*)"/ do |uncheck, exercise_list|
 
-	rating_list.split(", ").each do |ex|
-	if uncheck.nil?
-		step %Q{I check "exercise_#{ex}"}
-	else
-		step %Q{I uncheck "exercise_#{ex}"}
-	end
+	exercise_list.split(", ").each do |ex|
+		if uncheck.nil?
+			step %Q{I check "exercise_#{ex}"}
+		else
+			step %Q{I uncheck "exercise_#{ex}"}
+		end
 	end
 end
 

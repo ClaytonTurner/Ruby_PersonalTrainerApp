@@ -57,10 +57,6 @@ Then /^The profile "(.*)" should not exist$/ do |email|
 	assert(p.nil?)
 end
 
-When(/^I select all exercises$/) do
-  
-end
-
 When /I (un)?check the following exercies: "(.*)"/ do |uncheck, exercise_list|
 
 	rating_list.split(", ").each do |ex|
