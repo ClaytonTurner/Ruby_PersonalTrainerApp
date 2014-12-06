@@ -40,7 +40,7 @@ end
 
 
 describe 'workouts' do
-	@workout_found = Workout.new
+	@workout_found = Workouts.new
 	@workout_found.id = 1
 	@workout_found.profile_id = 'test@gmail.com'
 	@workout_found.name = 'Pullups'
