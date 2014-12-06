@@ -11,7 +11,7 @@ class WorkoutsController < ApplicationController
       user_email = session[:email]
     end
 #user_password = profile_hash[:password]
-    if Profile.exists?(5)
+    if Profile.exists?(user_email)
 #session[:email] = Profile.where("email = ?",user_email).first.id()  
       session[:email] = user_email
 #return Profile.where("email = ?",user_email).first.id()
