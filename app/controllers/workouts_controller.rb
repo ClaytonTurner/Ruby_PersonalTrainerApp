@@ -17,7 +17,6 @@ class WorkoutsController < ApplicationController
 #return Profile.where("email = ?",user_email).first.id()
       return user_email
     else
-      codebreaker
       return nil
     end
   end
@@ -27,6 +26,9 @@ class WorkoutsController < ApplicationController
     @workout = Workout.find(id) # look up workout by unique ID
     # will render app/views/workouts/show.<extension> by default
     @creator = Profile.find(@workout.profile_id)
+    if session[:email]
+      @profile = session[:email]
+    end
   end
 
   def index
