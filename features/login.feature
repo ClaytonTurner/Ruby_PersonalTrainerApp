@@ -4,7 +4,7 @@ As a registered user
 So I can use all the features of PersonalTranierApp
 I want to log into my account
 
-Background: Start from the "Welcome Page" page
+Background: Start from the "Login page"
 
 	Given the following profiles exist:
   | email		        | password | name	| weight | height |
@@ -16,18 +16,17 @@ Background: Start from the "Welcome Page" page
 	And I am on the "Login page"
 
 Scenario: try to log into existing account
-	When I fill in "Email" with "my@email.com"
-	And I fill in "Password" with "thispassword"
+	When I fill in "Email" with "my@gmail.com"
+	And I fill in "Password" with "1234"
 	And I press the "Submit" button
-	Then I should be redirected to the "All Workouts" page
+	Then I am on the "All Workouts page"
 	And I should see "Hello Jim"
-	And I should not see "Wrong login information"
 
 Scenario: try to log with incorrect login info
-	When I fill in "Email" with "my@email.com"
+	When I fill in "Email" with "my@gmail.com"
 	And I fill in "Password" with "wrongpassword"
 	And I press the "Submit" button
-	Then I should see "Wrong login information"
-	Then I should be redirected to the "Welcome Page" page
+	Then I am on the "All Workouts page"
+	And I should not see "Hello Jim"
 
 

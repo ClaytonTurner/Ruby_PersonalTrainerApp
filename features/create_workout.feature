@@ -26,8 +26,12 @@ Background: Start at the Create Workout page
   | pushups | push up     | 00:00:10	  | pic1  |
   | situps  | sit up now  | 00:00:10	  | pic2  |
   | rest   	| rest now    | 00:00:10    | pic3  |
-
-	And I am logged in as "jim@gmail.com"
+	
+	Given I am on the "Login page"
+	And I fill in "Email" with "jim@gmail.com"
+	And I fill in "Password" with "1234"
+	And I press the "Submit" button
+	And I follow "Add New Workout"
 	And I am on the "Create Workout page for "Jim""
 
 Scenario: create workout

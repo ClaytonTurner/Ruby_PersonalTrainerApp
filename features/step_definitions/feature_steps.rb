@@ -29,15 +29,11 @@ When /^I press the "(.*)" button/ do |button|
 	  click_button(button)
 end
 
-Then /^I should be on the "(.*)" page$/ do |pagename|
-  visit path_to(pagename)
-end
-
 Then /^I should see all the workouts/ do
   flunk "Unimplemented"
 end
 
-Then /^I should be redirected to the "(.*)" page$/ do |pagename|
+Then /^I should be redirected to the "(.*)"$/ do |pagename|
   response.should redirect_to(path_to(pagename))
 end
 
