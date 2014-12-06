@@ -1,9 +1,14 @@
 
 %h1.title Personal Trainer App!
-Hello   ,
-= link_to "Login", login_path
+- unless session[:email]
+  = link_to "Login", login_path
+- else
+  Hello
+  = Profile.find(session[:email]).name
 = link_to "Create Account", new_profile_path
-= link_to "View Accounts", profiles_path(@profile)#new_profile_path
+- unless @profile.nil?
+  = link_to "View Account", profile_path(@profile)#new_profile_path
+
 %h2 Edit #{@workout.name}
 
 = form_tag workouts_path(@workouts), :method => :put do
