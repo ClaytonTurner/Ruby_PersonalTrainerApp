@@ -5,7 +5,12 @@ class WorkoutsController < ApplicationController
     user_email = params[:email]
     if user_email == "Email"
       user_email = params[:profile][:email]
-      user_email = Profile.where("email = ?",user_email).first.id()
+      if Profile.where("email = ?",user_email).first.nil?
+        flash[:notice] = "Incorrect Login"
+#redirect_to workouts_path
+      else
+        user_email = Profile.where("email = ?",user_email).first.id()
+      end
     end
     if user_email.nil?
       user_email = session[:email]
