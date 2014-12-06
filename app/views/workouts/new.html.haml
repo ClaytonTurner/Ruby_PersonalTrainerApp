@@ -13,20 +13,20 @@ Hello   ,
   = label :workout, 'Include Rest:'
   = check_box_tag 'rest'
 
-%table#exercises
-  %thead
-    %tr
-      %th Include
-      %th Name
-      %th Description
-      %th Time
-  %tbody
-    - @exercises.each do |exercise|
+  %table#exercises
+    %thead
       %tr
-        %td= check_box_tag "", 1, false
-        %td= exercise.name
-        %td= exercise.description
-        %td= exercise.defaultTime
+        %th Include
+        %th Name
+        %th Description
+        %th Time
+    %tbody
+      - @exercises.each do |exercise|
+        %tr
+          %td= check_box_tag exercise.name, 1, false
+          %td= exercise.name
+          %td= exercise.description
+          %td= exercise.defaultTime
 
-= submit_tag 'Save Changes'
+  = submit_tag 'Save Changes'
 = link_to 'Back to workout list', workouts_path

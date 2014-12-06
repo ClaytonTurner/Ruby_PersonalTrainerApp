@@ -1,10 +1,10 @@
 class WorkoutsController < ApplicationController
 
   def check_login
-    profile_hash = params[:profile]
-    user_email = profile_hash[:email]
-    user_password = profile_hash[:password]
-    if Profile.exists?(:email=>user_email,:password=>user_password)
+#profile_hash = params[:profile]
+    user_email = params[:email]
+#user_password = profile_hash[:password]
+    if Profile.exists?(:email=>user_email)
       session[:email] = Profile.where("email = ?",user_email).first.id()  
       return Profile.where("email = ?",user_email).first.id()
     else
@@ -16,7 +16,7 @@ class WorkoutsController < ApplicationController
     id = params[:id] # retrieve workout ID from URI route
     @workout = Workout.find(id) # look up workout by unique ID
     # will render app/views/workouts/show.<extension> by default
-    @creator = Profile.find(@workout)
+    @creator = Profile.find(@workout.profile_id)
   end
 
   def index
@@ -41,10 +41,18 @@ class WorkoutsController < ApplicationController
 
   def create
     user_email = check_login
-    unless @workout.nil? # User needs to be logged in for workout
-      @profile = params[:email]
-      @workout = Workout.create!(params[:workout])
-      flash[:notice] = "#{@workout.title} was successfully created."
+    @exercises = Exercise.all
+    unless params[:workout].nil? # User needs to be logged in for workout
+      workout_hash = params[:workout]
+      workout_hash[:profile_id] = session[:email]
+      @workout = Workout.create!(workout_hash)
+      @exercises.each do |exercise|
+        if params.keys.include? exercise.name
+          @workout.exercises << exercise
+        end
+      end
+#@workout.exercises << Exercise.find(
+      flash[:notice] = "#{@workout.name} was successfully created."
     end
     if params[:profile].nil?
       redirect_to workouts_path
