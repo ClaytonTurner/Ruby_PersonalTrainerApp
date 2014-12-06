@@ -5,7 +5,7 @@ Hello
 = link_to "Create Account", new_profile_path
 - unless @profile.nil?
   = link_to "View Account", profile_path(@profile)#new_profile_path
-= flash[:notice]
+
 %h2 All Workouts
 %table#workouts
   %thead

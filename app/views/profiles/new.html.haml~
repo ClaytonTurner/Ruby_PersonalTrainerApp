@@ -19,5 +19,3 @@
   = text_field :profile, 'password'
 
   = submit_tag 'Submit'
-
-= link_to 'Back', workouts_path

@@ -42,7 +42,7 @@ Scenario: cancel the creation of a profile
 	And I fill in "Weight" with "140"
 	And I fill in "Height" with "70"
 	And I follow "Back"
-	Then I should see "All Workouts"
+	Then I should be redirected to the "Welcome Page" page
 	And The profile "unwanted@email.com" should not exist
 	
 
