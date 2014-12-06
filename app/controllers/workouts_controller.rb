@@ -1,13 +1,11 @@
 class WorkoutsController < ApplicationController
 
   def check_login
-#profile_hash = params[:profile]
     user_email = params[:email]
     if user_email == "Email"
       user_email = params[:profile][:email]
       if Profile.where("email = ?",user_email).first.nil?
         flash[:notice] = "Incorrect Login"
-#redirect_to workouts_path
       else
         user_email = Profile.where("email = ?",user_email).first.id()
       end
@@ -15,15 +13,8 @@ class WorkoutsController < ApplicationController
     if user_email.nil?
       user_email = session[:email]
     end
-#user_password = profile_hash[:password]
     if Profile.exists?(user_email)
-      if Profile.find(user_email).password == params[:profile][:password]
-#session[:email] = Profile.where("email = ?",user_email).first.id()  
-        session[:email] = user_email
-      else
-        return nil
-      end
-#return Profile.where("email = ?",user_email).first.id()
+      session[:email] = user_email
       return user_email
     else
       return nil
