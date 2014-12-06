@@ -23,7 +23,7 @@ Scenario: edit user weight on profile
   Then I should be redirected to the "User Profile" page
 
 Scenario: delete user profile
-  When I press the "Delete" button
+  When I press the "delete profile" button
   Then I should see "Your profile has been successfully deleted"
   Then I should be redirected to the "Welcome Page" page
 	Then The profile "jim@gmail.com" should not exist

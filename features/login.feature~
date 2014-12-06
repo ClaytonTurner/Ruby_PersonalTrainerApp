@@ -21,9 +21,6 @@ Scenario: try to log into existing account
 	And I press the "Submit" button
 	Then I should be redirected to the "User Profile" page
 	And I should see "Hello, Jim"
-	And I should see "Weight: 170"
-	And I should see "Height: 54"
-	And I should see "Email: my@gmail.com"
 	And I should not see "Wrong login information"
 
 Scenario: try to log with incorrect login info

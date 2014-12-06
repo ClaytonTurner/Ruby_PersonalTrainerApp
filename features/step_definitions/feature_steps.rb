@@ -42,10 +42,32 @@ Then /^I should be redirected to the "(.*)" page$/ do |pagename|
   response.should redirect_to(path_to(pagename))
 end
 
-Then(/^The workout "(.*?)" should be added to the workouts table$/) do |workout_name|
+Then /^The workout "(.*)" should be added to the workouts table$/ do |workout_name|
   w = Workout.find_by_name(workout_name)
 	assert(w)
 end
+
+Then /^The profile "(.*)" should exist$/ do |email|
+	p = Profile.find_by_email(email)
+	assert(p)
+end
+
+Then /^The profile "(.*)" should not exist$/ do |email|
+	p = Profile.find_by_email(email)
+	assert(p.nil?)
+end
+
+When /I (un)?check the following exercies: "(.*)"/ do |uncheck, exercise_list|
+
+	rating_list.split(", ").each do |ex|
+	if uncheck.nil?
+		step %Q{I check "exercise_#{ex}"}
+	else
+		step %Q{I uncheck "exercise_#{ex}"}
+	end
+	end
+end
+
 
 
 

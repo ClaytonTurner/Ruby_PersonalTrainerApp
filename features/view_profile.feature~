@@ -23,3 +23,10 @@ Scenario: view user profile
   And I should see "Weight: 170 lbs"
   And I should see "Height: 54 inches"
 	And I should see "Email: jim@gmail.com"
+ 
+Scenario: intiate edit user profile
+	When I press the "View Profile" button
+  Then I should be redirected to the "User Profile" page
+  When I press the "Edit Profile" button
+  Then I should be redirected to the "Edit Profile" page
+

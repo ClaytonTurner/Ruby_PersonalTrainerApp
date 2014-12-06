@@ -34,7 +34,7 @@ Scenario: create workout
 Scenario: cancel workout
 	When I fill in "Name" with "newWorkout"
 	And I press the "Cancel" button
-	Then I should be redirected to the "All Workouts" page
+	Then I should be redirected to the "Welcome Page" page
 
 
 
