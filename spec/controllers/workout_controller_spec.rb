@@ -1,12 +1,17 @@
+#spec/controllers/workout_controller_spec.rb
+
 require 'spec_helper'
-#require 'workout_controller.rb'
+require 'rails_helper'
+#require 'workouts_controller.rb'
 
-describe '#destroy' do
+describe WorkoutsController do
+  describe '#destroy' do
 
- context 'when resource is not found' do
-   it 'responds with record not found'
-   response.should render_template('workouts')
- end 
+    context 'when resource is not found' do
+     it 'responds with record not found'
+     expect(response).to reander_template('workouts')
+#response.should render_template('workouts')
+   end 
 
  context 'when resource is found' do
    it 'reponds with Workout "#{@workout.title}" destroyed.'
@@ -75,4 +80,4 @@ end
    get :similar, {:id => 1}
    response.should render_template('similar')
   end
-
+end
