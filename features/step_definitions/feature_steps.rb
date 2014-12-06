@@ -25,16 +25,16 @@ Given /^I am on the "(.*)"$/ do |pagename|
   visit path_to(pagename)
 end
 
+Then /^I should be on the "(.*)"$/ do |pagename|
+  visit path_to(pagename)
+end
+
 When /^I press the "(.*)" button/ do |button|
 	  click_button(button)
 end
 
 Then /^I should see all the workouts/ do
   flunk "Unimplemented"
-end
-
-Then /^I should be redirected to the "(.*)"$/ do |pagename|
-  response.should redirect_to(path_to(pagename))
 end
 
 Then /^The workout "(.*)" should be added to the workouts table$/ do |workout_name|

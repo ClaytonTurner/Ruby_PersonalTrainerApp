@@ -27,7 +27,7 @@ Background: Start at the Create Workout page
   | situps  | sit up now  | 00:00:10	  | pic2  |
   | rest   	| rest now    | 00:00:10    | pic3  |
 	
-	Given I am on the "Login page"t
+	Given I am on the "Login page"
 	And I fill in "Email" with "jim@gmail.com"
 	And I fill in "Password" with "1234"
 	And I press the "Submit" button
@@ -39,7 +39,7 @@ Scenario: create workout
 	And I check the following exercies: "pushups, situps"
 	And I press the "Save Changes" button
 	Then The workout "newWorkout" should be added to the workouts table
-	And I should be redirected to the "All Workouts page"
+	And I should be on the "All Workouts page"
 
 Scenario: cancel workout
 	When I fill in "Name" with "newWorkout"

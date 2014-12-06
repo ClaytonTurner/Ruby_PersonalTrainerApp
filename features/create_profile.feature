@@ -5,7 +5,7 @@ As a new user
 So I can create a new account with my Personal Trainer Application
 I want to create a profile
 
-Background: Start from the "Welcome Page" home page
+Background: Start from the "All Workouts page"
 	
 	Given the following profiles exist:
 	| email             | password     | name | weight | height |

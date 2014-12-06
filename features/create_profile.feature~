@@ -12,7 +12,7 @@ Background: Start from the "Welcome Page" home page
 	| myemail@email.com | thispassword | Anna | 135    | 62     |
 	| other@email.com   | pass1234     | Bob  | 168    | 72     |
 
-	And I am on the "Build Your Profile" page
+	And I am on the "Build Your Profile page"
 
 Scenario: committing account information
 	When I fill in "Email" with "newemail@other.com"

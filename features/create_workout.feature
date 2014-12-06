@@ -39,12 +39,12 @@ Scenario: create workout
 	And I check the following exercies: "pushups, situps"
 	And I press the "Save Changes" button
 	Then The workout "newWorkout" should be added to the workouts table
-	And I should be redirected to the "All Workouts page"
+	And I should be on the "All Workouts page"
 
 Scenario: cancel workout
 	When I fill in "Name" with "newWorkout"
 	And I follow "Back to workout list"
-	Then I should be redirected to the "All Workouts" page
+	Then I should be on the "All Workouts page"
 
 
 
