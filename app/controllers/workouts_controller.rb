@@ -12,8 +12,12 @@ class WorkoutsController < ApplicationController
     end
 #user_password = profile_hash[:password]
     if Profile.exists?(user_email)
+      if Profile.find(user_email).password == params[:profile][:password]
 #session[:email] = Profile.where("email = ?",user_email).first.id()  
-      session[:email] = user_email
+        session[:email] = user_email
+      else
+        return nil
+      end
 #return Profile.where("email = ?",user_email).first.id()
       return user_email
     else
