@@ -9,6 +9,5 @@
   = label :profile, :password, 'Password' 
   = text_field :profile, 'password'
   = submit_tag 'Submit'
-%br
-%br
+
 = link_to 'Create Account', new_profile_path

@@ -34,7 +34,7 @@ module NavigationHelpers
 			when /^Exercises/ then '/exercises'
 
 			when /^Create Workout page for "(.*)"/ then "/workouts/new?email=#{getProfileId($1)}"
-			when /^All Workouts page/ then '/workouts/index'
+			when /^All Workouts page/ then '/workouts'
 			when /^Workout Details page for "(.*)"/ then "/workouts/#{getWorkoutId($1)}"
 			when /^Workout Edit page for "(.*)"/ then "/workouts/#{getWorkoutId($1)}/edit"
 			when /^Exercise Details page for "(.*)"/ then "/exercises/#{getExerciseId($1)}"
