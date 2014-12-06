@@ -4,7 +4,8 @@ class WorkoutsController < ApplicationController
     user_email = params[:email]
     if user_email == "Email"
       user_email = params[:profile][:email]
-      if Profile.where("email = ?",user_email).first.nil?
+      user_password = params[:profile][:password]
+      if Profile.where("email = ? AND password = ?",user_email,user_password).first.nil?
         flash[:notice] = "Incorrect Login"
       else
         user_email = Profile.where("email = ?",user_email).first.id()
