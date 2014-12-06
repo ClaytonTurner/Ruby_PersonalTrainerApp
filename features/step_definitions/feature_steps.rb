@@ -21,7 +21,7 @@ Given /^I am logged in as "(.*)"/ do |email|
 	assert(user)
 end
 
-Given /^I am on the "(.*)" page$/ do |pagename|
+Given /^I am on the "(.*)"$/ do |pagename|
   visit path_to(pagename)
 end
 
