@@ -18,7 +18,7 @@ Given /^I am logged in as "(.*)"/ do |email|
 	assert(user)
 end
 
-Given /^I am on the "(.*)" page$/ do |pagename|
+Given /^I am on the "(.*)"$/ do |pagename|
   visit path_to(pagename)
 end
 
@@ -59,12 +59,12 @@ end
 
 When /I (un)?check the following exercies: "(.*)"/ do |uncheck, exercise_list|
 
-	rating_list.split(", ").each do |ex|
-	if uncheck.nil?
-		step %Q{I check "exercise_#{ex}"}
-	else
-		step %Q{I uncheck "exercise_#{ex}"}
-	end
+	exercise_list.split(", ").each do |ex|
+		if uncheck.nil?
+			step %Q{I check "exercise_#{ex}"}
+		else
+			step %Q{I uncheck "exercise_#{ex}"}
+		end
 	end
 end
 

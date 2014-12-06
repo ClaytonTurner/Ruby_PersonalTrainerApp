@@ -11,12 +11,15 @@ module NavigationHelpers
   # step definition in web_steps.rb
   #
   def path_to(page_name)
+    def getProfileId(name)
+      Profile.find_by_name(name).id
+    end
     case page_name
 
 			when /^Welcome Page/ then '/profiles/login'
-			when /^User Profile/ then '/profiles/'
-			when /^Edit Profile/ then '/profiles/edit'
-			when /^Edit Your Profile/ then '/profiles/edit'
+			when /^User Profile page for "(.*)"/ then "profiles/#{getProfileId($1)}"
+			when /^Edit Profile page for (.*)/ then "profiles/#{getProfileId($1)}/edit"
+			when /^Edit Your Profile/ then '/profiles/edit/'
 			when /^Build Your Profile/ then '/profiles/new'
 
 			#when /^Exercises Show/ then '/exercises/show'
