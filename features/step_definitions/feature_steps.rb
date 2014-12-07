@@ -16,6 +16,7 @@ Given /the following profiles exist/ do |profiles_table|
 	end
 end
 
+
 Given /^I am logged in as "(.*)"/ do |email|
 	user = Profile.find_by_email(email)
 	assert(user)
@@ -23,6 +24,12 @@ end
 
 Given /^I am on the "(.*)"$/ do |pagename|
   visit path_to(pagename)
+end
+
+Given /^"(.*)" are part of "(.*)"$/ do |exercise, workout|
+  workoutId = Workout.find_by_name(workout)
+  exerciseId = Exercise.find_by_name(exercise)
+  workoutId.exercises << exerciseId
 end
 
 Then /^I should be on the "(.*)"$/ do |pagename|
