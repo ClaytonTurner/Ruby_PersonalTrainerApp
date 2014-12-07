@@ -87,6 +87,11 @@ class WorkoutsController < ApplicationController
   def update
     @workout = Workout.find params[:id]
     @workout.update_attributes!(params[:workout])
+    Exercise.all.each do |exercise|
+      if params.keys.include? exercise.name and not @workout.exercises.include? exercise 
+        @workout.exercises << exercise
+      end
+    end
     flash[:notice] = "#{@workout.name} was successfully updated."
     redirect_to workouts_path(@workout)
   end
@@ -94,7 +99,7 @@ class WorkoutsController < ApplicationController
   def destroy
     @workout = Workout.find(params[:id])
     @workout.destroy
-    flash[:notice] = "Workout '#{@workout.title}' destroyed."
+    flash[:notice] = "Workout '#{@workout.name}' destroyed."
     redirect_to workouts_path
   end
 

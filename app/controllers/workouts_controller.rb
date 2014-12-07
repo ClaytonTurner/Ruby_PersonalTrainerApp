@@ -87,6 +87,13 @@ class WorkoutsController < ApplicationController
   def update
     @workout = Workout.find params[:id]
     @workout.update_attributes!(params[:workout])
+    Exercise.all.each do |exercise|
+      if params.keys.include? exercise.name and not @workout.exercises.include? exercise 
+        @workout.exercises << exercise
+      elsif @workout.exercises.include? exercise and not params.keys.include? exercise.name
+        @workout.exercises.delete exercise
+      end
+    end
     flash[:notice] = "#{@workout.name} was successfully updated."
     redirect_to workouts_path(@workout)
   end

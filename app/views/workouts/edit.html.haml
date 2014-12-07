@@ -26,9 +26,9 @@
         %th Description
         %th Time
     %tbody
-      - @workout.exercises.each do |exercise|
+      - Exercise.all.each do |exercise|
         %tr
-          %td= check_box_tag exercise.name, 1, true
+          %td= @workout.exercises.include?(exercise)?check_box_tag(exercise.name, 1, true):check_box_tag(exercise.name, 1, false)
           %td= exercise.name
           %td= exercise.description
           %td= exercise.defaultTime
