@@ -87,14 +87,14 @@ class WorkoutsController < ApplicationController
   def update
     @workout = Workout.find params[:id]
     @workout.update_attributes!(params[:workout])
-    flash[:notice] = "#{@workout.title} was successfully updated."
+    flash[:notice] = "#{@workout.name} was successfully updated."
     redirect_to workouts_path(@workout)
   end
 
   def destroy
     @workout = Workout.find(params[:id])
     @workout.destroy
-    flash[:notice] = "Workout '#{@workout.title}' destroyed."
+    flash[:notice] = "Workout '#{@workout.name}' destroyed."
     redirect_to workouts_path
   end
 

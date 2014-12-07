@@ -11,7 +11,7 @@
 
 %h2 Edit #{@workout.name}
 
-= form_tag workouts_path(@workouts), :method => :put do
+= form_tag workout_path(@workout), :method => :put do
 
   = label :workout, :name, 'Name'
   = text_field :workout, 'name'
@@ -28,10 +28,10 @@
     %tbody
       - @workout.exercises.each do |exercise|
         %tr
-          %td= check_box_tag exercise.name, 1, false
+          %td= check_box_tag exercise.name, 1, true
           %td= exercise.name
           %td= exercise.description
           %td= exercise.defaultTime
 
   = submit_tag 'Save Changes'
-= link_to 'Back to workout list', workouts_path
+= link_to 'Back to workout list', workout_path

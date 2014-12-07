@@ -6,7 +6,7 @@ class WorkoutsController < ApplicationController
       user_email = params[:profile][:email]
       user_password = params[:profile][:password]
       if Profile.where("email = ? AND password = ?",user_email,user_password).first.nil?
-        #flash[:notice] = "Incorrect Login"
+        flash[:notice] = "Incorrect Login"
       else
         user_email = Profile.where("email = ?",user_email).first.id()
       end
@@ -87,7 +87,7 @@ class WorkoutsController < ApplicationController
   def update
     @workout = Workout.find params[:id]
     @workout.update_attributes!(params[:workout])
-    flash[:notice] = "#{@workout.title} was successfully updated."
+    flash[:notice] = "#{@workout.name} was successfully updated."
     redirect_to workouts_path(@workout)
   end
 

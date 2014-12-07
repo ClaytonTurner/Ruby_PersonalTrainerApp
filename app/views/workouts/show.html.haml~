@@ -26,6 +26,6 @@ Created by:
         %td= exercise.defaultTime
 
 
-= button_to 'Delete', workout_path(@workout), :method => :delete, :confirm => 'Are you sure?'
+= button_to 'Delete', workouts_path(@workout), :method => :delete, :confirm => 'Are you sure?'
 = link_to 'Edit', edit_workout_path(@workout)
 = link_to 'Back to workout list', workouts_path
