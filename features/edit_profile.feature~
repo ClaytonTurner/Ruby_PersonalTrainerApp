@@ -17,14 +17,14 @@ Background: I am a registered user on the Personal Trainer app
 
 Scenario: edit user weight on profile
   When I fill in "Weight" with "160"
-  And I press the "Save" button
+  And I press the "Update Profile Info" button
   Then I should see "Your profile has been successfully updated"
-  Then I should be redirected to the "User Profile" page
+  Then I should be on the "All Workouts page"
 
 Scenario: delete user profile
   When I press the "Delete" button
-  Then I should see "Your profile has been successfully deleted"
-  Then I should be redirected to the "Welcome Page" page
-	Then The profile "jim@gmail.com" should not exist
+  Then I should see "Profile Jim destroyed."
+  Then I should be on the "All Workouts page"
+  Then The profile "jim@gmail.com" should not exist
 
 

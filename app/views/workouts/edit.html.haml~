@@ -11,7 +11,7 @@
 
 %h2 Edit #{@workout.name}
 
-= form_tag workouts_path(@workouts), :method => :put do
+= form_tag workouts_path(@workouts) do
 
   = label :workout, :name, 'Name'
   = text_field :workout, 'name'

@@ -31,7 +31,7 @@ class ProfilesController < ApplicationController
   def update
     @profile = Profile.find params[:id]
     @profile.update_attributes!(params[:profile])
-    flash[:notice] = "Your profile has been successfully updated."
+    flash[:notice] = "#{@profile.name} was successfully updated."
     redirect_to workouts_path
   end
 
