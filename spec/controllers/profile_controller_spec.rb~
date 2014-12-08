@@ -1,67 +1,43 @@
 #created by: Nadia Rodriguez
 #Date: 12/6/14
-
-
+#For: Iteration 1
 #spec/controllers/profile_controller_spec.rb
 
 require_relative  '../spec_helper'
 #require 'spec_helper'
 
-describe ProfileController do
+describe ProfilesController do
 	before :each do
 		@fake_profile = stub('double').as_null_object
 		@profile = [mock('profile1')]
 	end
-	describe 'updating profile info' do
-		before :each do
-			profile_id = 5
-			Profile.should_receive(:find_by_id).with(profile_id.to_s).and_return(@fake_profile)
-			@fake_profile.should_receive(:update_attributes!).exactly 1
-			put :update, {:id => profile_id, :profile => @profile}
-		end
-		it 'should call the model method that performs the profile update' do
-			true
-		end
-		it 'should redirect to details template for rendering' do
-			response.should redirect_to(workouts_path @fake_profile)
-		end
-		it 'should make updated info available to template' do
-			assigns(:profile).should == @fake_profile
+	describe '#update' do
+		context 'when updating a record' do
+			it 'responds with "#{@profile.name} was successfully updated."' do
+				response.should render_template('profiles')
+			end
 		end
 	end
 
-	describe 'create a new profile' do
-		it 'should render the new-profile template' do
-			get :new
-			response.should render_template 'new'
-		end
-		it 'should call a model method to persist data' do
-			profile = stub('new profile').as_null_object
-			Profile.should_receive(:create!).and_return(profile)
-			post :create, {:profile => profile}
-		end
-		it 'should render home template' do
-			profile = stub('new profile').as_null_object
-			Profile.stub(:create!).and_return(profile)
-			post :create, {:profile => profile}
-			response.should redirect_to(profiles_path)
-		end
+	describe '#edit' do
+		#edit profile
 	end
 
-	describe 'delete an existing profile' do
-		it 'should render edit profile template' do
-			Profile.stub(:find)
-			get :edit, {:id => 5}
-			response.should render_template 'edit'
+	describe Profile do
+		it "should have expected attributes" do
+			@profile_found = Profile.new
+			@profile_found.should respond_to :email
+			@profile_found.should respond_to :name
+			@profile_found.should respond_to :weight
+			@profile_found.should respond_to :height
+			@profile_found.should respond_to :password
 		end
-		it 'should call a model method to update data' do
-			my_profile = mock('a profile').as_null_object
-			Profile.should_receive(:find).and_return(my_profile)
-			my_profile.should_receive(:destroy)
-			delete :destroy, {:id => 1}
-		end
-		it 'should render show details template' do
-
+		it 'should find profile test@gamil.com' do
+			@profile_found.email.should eq('test@gmail.com')
+			@profile_found.name.should eq('Abcd')
+			@profile_found.weight.should eq(200)
+			@profile_found.height.should eq(74)
+			@profile_found.password.should eq('Mypa$$word1234')
 		end
 	end
 end

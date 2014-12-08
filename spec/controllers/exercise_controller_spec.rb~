@@ -5,7 +5,7 @@
 require 'spec_helper'
 require 'rails_helper'
 
-describe ExercisesController do
+describe ExerciseController do
 	it 'should call the method' do
 		pending
 	end

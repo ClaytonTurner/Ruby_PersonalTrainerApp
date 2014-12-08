@@ -1,5 +1,4 @@
 #Created by: Paul Kyser
-#For: Iteration 1
 #spec/models/profile_spec.rb
 
 require_relative  '../spec_helper'

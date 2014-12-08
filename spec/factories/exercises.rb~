@@ -1,5 +1,3 @@
-#Created by: Paul Kyser
-#For: Iteration 1
 #spec/factories/exercises.rb
 
 require 'faker'
