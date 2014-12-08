@@ -13,7 +13,8 @@ Background: I am a registered user on the Personal Trainer app
   | alex@gmail.com	  | 1234aowjes   | Alex	| 115	   | 46	    |
   
   And I am logged in as "jim@gmail.com"
-	And I am on the "Edit Profile page for "Jim""
+  And I am on the "Edit Profile page for "Jim""
+  And user is "1"
 
 Scenario: edit user weight on profile
   When I fill in "Weight" with "160"

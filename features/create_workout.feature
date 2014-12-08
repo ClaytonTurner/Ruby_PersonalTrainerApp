@@ -36,7 +36,7 @@ Background: Start at the Create Workout page
 
 Scenario: create workout
 	When I fill in "Name" with "newWorkout"
-	And I check the following exercies: "pushups, situps"
+	And I check the following exercises: "pushups, situps"
 	And I press the "Save Changes" button
 	Then The workout "newWorkout" should be added to the workouts table
 	And I should be on the "All Workouts page"

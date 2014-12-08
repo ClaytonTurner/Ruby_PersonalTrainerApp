@@ -36,6 +36,10 @@ Given /^I have a session email value of "(.*)"/ do |email_id|
   session[:email] = email_id
 end
 
+Given /^User is "(.*)"/ do |session_email|
+  @user=1
+end
+
 Then /^I should be on the "(.*)"$/ do |pagename|
   visit path_to(pagename)
 end
