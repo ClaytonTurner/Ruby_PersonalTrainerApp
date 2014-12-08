@@ -32,6 +32,14 @@ Given /^"(.*)" are part of "(.*)"$/ do |exercise, workout|
   workoutId.exercises << exerciseId
 end
 
+Given /^I have a session email value of "(.*)"/ do |email_id|
+  session[:email] = email_id
+end
+
+Given /^User is "(.*)"/ do |session_email|
+  @user=1
+end
+
 Then /^I should be on the "(.*)"$/ do |pagename|
   visit path_to(pagename)
 end
@@ -59,7 +67,7 @@ Then /^The profile "(.*)" should not exist$/ do |email|
 	assert(p.nil?)
 end
 
-When /I (un)?check the following exercies: "(.*)"/ do |uncheck, exercise_list|
+When /I (un)?check the following exercises: "(.*)"/ do |uncheck, exercise_list|
 
 	exercise_list.split(", ").each do |ex|
 		if uncheck.nil?
@@ -70,6 +78,9 @@ When /I (un)?check the following exercies: "(.*)"/ do |uncheck, exercise_list|
 	end
 end
 
+#When /I fill in "(.*)" with "(.*)"/ do |field,text|
+#	fill_in $1, :with => $2
+#end
 
 
 

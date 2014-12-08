@@ -37,7 +37,7 @@ class ProfilesController < ApplicationController
 
   def destroy
     @profile = Profile.find(params[:id])
-    if session[:email] == params[:id]
+    if session[:email].to_s == params[:id]
       @profile.destroy
       flash[:notice] = "Profile '#{@profile.name}' destroyed."
       session[:email] = nil
@@ -48,8 +48,7 @@ class ProfilesController < ApplicationController
   end
 
   def login
-#email = params[:email]
-#redirect_to workouts_path :email => email
+  
   end
 
 	def home

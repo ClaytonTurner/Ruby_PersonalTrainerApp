@@ -29,4 +29,17 @@ Scenario: try to log with incorrect login info
 	Then I am on the "All Workouts page"
 	And I should not see "Hello Jim"
 
+Scenario: try to log in without filling out the email
+	When I fill in "Password" with "1234"
+	And I press the "Submit" button
+	Then I should see "Incorrect Login"
+	
+Scenario: try to log in without fill out the password
+	When I fill in "Email" with "will@gmail.com"
+	And I press the "Submit" button
+	Then I should see "Incorrect Login"
+
+Scenario: try to log in without filling out email or password
+	When I press the "Submit" button
+	Then I should see "Incorrect Login"
 

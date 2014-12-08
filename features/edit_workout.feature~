@@ -1,9 +1,9 @@
+Feature: Edit a workout
 
-Feature: (Iteration 2) create a workout
+as a user
+so I can change one of my favorite workout routines
+I want to edit an existing workout
 
-As a user
-So I can workout the way I want to
-I want to create a custom workout
 
 Background: Start at the Create Workout page
 	Given the following profiles exist:
@@ -32,20 +32,25 @@ Background: Start at the Create Workout page
 	And I fill in "Password" with "1234"
 	And I press the "Submit" button
 	And I follow "Add New Workout"
-	And I am on the "Create Workout page for "Jim""
+	And I am on the "Edit Workout page for "workout1""
 
-Scenario: create workout
-	When I fill in "Name" with "newWorkout"
+Scenario: edit workout
+	When I fill in "Name" with "editedWorkout"
 	And I check the following exercises: "pushups, situps"
 	And I press the "Save Changes" button
-	Then The workout "newWorkout" should be added to the workouts table
-	And I should be on the "All Workouts page"
+	And I follow "editedWorkout" 
+	Then I should see "editedWorkout"
 
 Scenario: cancel workout
-	When I fill in "Name" with "newWorkout"
+	When I fill in "Name" with "editedWorkout"
 	And I follow "Back to workout list"
 	Then I should be on the "All Workouts page"
 
-
-
-
+Scenario: Take out an exercise
+	When I fill in "Name" with "edited"
+	And I check the following exercises: "pushups, situps"
+	And I press the "Save Changes" button
+	And I am on the "Edit Workout page for "edited""
+	And I uncheck the following exercises: "pushups"
+	And I am on the "Edit Workout page for "edited""
+	Then I should not see "pushups"

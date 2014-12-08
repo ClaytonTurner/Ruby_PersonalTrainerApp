@@ -44,7 +44,7 @@ Scenario: create workout
 Scenario: cancel workout
 	When I fill in "Name" with "newWorkout"
 	And I follow "Back to workout list"
-	Then I should be redirected to the "All Workouts" page
+	Then I should be on the "All Workouts page"
 
 
 
