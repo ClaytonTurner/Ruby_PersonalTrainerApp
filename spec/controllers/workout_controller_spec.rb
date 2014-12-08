@@ -11,7 +11,7 @@ describe WorkoutsController do
   describe '#destroy' do
 		context 'when resource is not found' do
 			it 'responds with record not found' do
-				expect(response).to reander_template('workouts')
+				expect(response).to render_template('workouts')
 				#response.should render_template('workouts')
 			end
    	end 
@@ -60,7 +60,7 @@ describe WorkoutsController do
 			@profile_found.should respond_to :height
 			@profile_found.should respond_to :password
 		end
-		it 'should find profile test@gamil.com' do
+		it 'should find profile test@gmail.com' do
 			@profile_found.email.should eq('test@gmail.com')
 			@profile_found.name.should eq('Abcd')
 			@profile_found.weight.should eq(200)
