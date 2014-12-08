@@ -14,7 +14,6 @@ Background: I am a registered user on the Personal Trainer app
   
   And I am logged in as "jim@gmail.com"
   And I am on the "Edit Profile page for "Jim""
-  And user is "1"
 
 Scenario: edit user weight on profile
   When I fill in "Weight" with "160"
@@ -22,10 +21,6 @@ Scenario: edit user weight on profile
   Then I should see "Your profile has been successfully updated"
   Then I should be on the "All Workouts page"
 
-Scenario: delete user profile
-  When I press the "Delete" button
-  Then I should see "Profile 'Jim' destroyed."
-  Then I should be on the "All Workouts page"
-  Then The profile "jim@gmail.com" should not exist
+
 
 
