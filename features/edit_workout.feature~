@@ -36,7 +36,7 @@ Background: Start at the Create Workout page
 
 Scenario: edit workout
 	When I fill in "Name" with "editedWorkout"
-	And I check the following exercises: "pushups, situps, rest"
+	And I check the following exercises: "pushups, situps"
 	And I press the "Save Changes" button
 	And I follow "editedWorkout" 
 	Then I should see "editedWorkout"
@@ -45,3 +45,12 @@ Scenario: cancel workout
 	When I fill in "Name" with "editedWorkout"
 	And I follow "Back to workout list"
 	Then I should be on the "All Workouts page"
+
+Scenario: Take out an exercise
+	When I fill in "Name" with "edited"
+	And I check the following exercises: "pushups, situps"
+	And I press the "Save Changes" button
+	And I am on the "Edit Workout page for "edited""
+	And I uncheck the following exercises: "pushups"
+	And I am on the "Edit Workout page for "edited""
+	Then I should not see "pushups"
