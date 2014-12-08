@@ -9,19 +9,37 @@ require 'rails_helper'
 describe ProfilesController do
 	before :each do
 		@fake_profile = stub('double').as_null_object
-		@profile = [mock('profile1')]
+		@profile = [double('profile1')]
 	end
 	describe '#update' do
 		context 'when updating a record' do
 			it 'responds with "#{@profile.name} was successfully updated."' do
-				response.should render_template('profiles')
+				response.should render_template('')
 			end
 		end
 	end
 
-	describe '#edit' do
-		#edit profile
+	describe "#edit" do
+	  
 	end
+  describe "Get #new" do
+    
+  end
+  describe "create and destroy" do
+    it 'should create a new profile' do
+      ProfilesController.stub(:create).and_return(mock('Profile'))
+      post :create, {:id => "1"}
+    end
+    it 'should destroy a profile' do
+      m = double(Profile, :id => "4", :email => "guy@gmail.com")
+      Profile.stub(:find).with("4").and_return(m)
+      m.should_recieve(:destroy)
+      delete :destroy, {:id => "4"}
+    end
+     
+  end
+
+
 
 	describe Profile do
 		it "should have expected attributes" do
