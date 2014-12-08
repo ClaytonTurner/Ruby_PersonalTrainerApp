@@ -29,7 +29,11 @@ end
 Given /^"(.*)" are part of "(.*)"$/ do |exercise, workout|
   workoutId = Workout.find_by_name(workout)
   exerciseId = Exercise.find_by_name(exercise)
-  workoutId.exercises << exercise
+  workoutId.exercises << exerciseId
+end
+
+Given /^I have a session email value of "(.*)"/ do |email_id|
+  session[:email] = email_id
 end
 
 Then /^I should be on the "(.*)"$/ do |pagename|
@@ -70,6 +74,9 @@ When /I (un)?check the following exercies: "(.*)"/ do |uncheck, exercise_list|
 	end
 end
 
+#When /I fill in "(.*)" with "(.*)"/ do |field,text|
+#	fill_in $1, :with => $2
+#end
 
 
 

@@ -13,19 +13,10 @@ Background: I am a registered user on the Personal Trainer app
   | alex@gmail.com	  | 1234aowjes   | Alex	| 115	   | 46	    |
   
   And I am logged in as "jim@gmail.com"
-	And I am on the "Edit Profile page for "Jim""
-  And I have a session email value of "1"
+	And I am on the "Edit Profile page for "Bob""
 
-Scenario: edit user weight on profile
-  When I fill in "Weight" with "160"
-  And I press the "Update Profile Info" button
-  Then I should see "Your profile has been successfully updated"
-  Then I should be on the "All Workouts page"
-
-Scenario: delete user profile
+Scenario: prevent delete wrong user profile
   When I press the "Delete" button
-  Then I should see "Profile 'Jim' destroyed."
+  Then I should not see "Profile 'Bob' destroyed."
   Then I should be on the "All Workouts page"
-  Then The profile "jim@gmail.com" should not exist
-
-
+  Then The profile "bob@gmail.com" should exist
