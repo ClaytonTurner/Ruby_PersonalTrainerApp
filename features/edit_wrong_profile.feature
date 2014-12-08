@@ -18,5 +18,6 @@ Background: I am a registered user on the Personal Trainer app
 Scenario: prevent delete wrong user profile
   When I press the "Delete" button
   Then I should not see "Profile 'Bob' destroyed."
+  Then I should see "You cannot destroy someone else's profile"
   Then I should be on the "All Workouts page"
   Then The profile "bob@gmail.com" should exist

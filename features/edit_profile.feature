@@ -14,7 +14,6 @@ Background: I am a registered user on the Personal Trainer app
   
   And I am logged in as "jim@gmail.com"
 	And I am on the "Edit Profile page for "Jim""
-  And I have a session email value of "1"
 
 Scenario: edit user weight on profile
   When I fill in "Weight" with "160"
