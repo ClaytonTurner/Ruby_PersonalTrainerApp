@@ -328,6 +328,8 @@ DEPENDENCIES
   pg
   rails (= 3.2.18)
   rails_12factor
+  rspec
+  rspec-mocks
   rspec-rails
   sass-rails (~> 3.2.3)
   simplecov
